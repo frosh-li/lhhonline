@@ -1,1 +1,1 @@
-﻿<html><head><meta http-equiv="Content-type" content="text/html; charset=gb2312"><title> {#$title#}</title> </head> <body> {#$title#}<!--{$content}--><!--{time()}--></body> </html>
+﻿<html><head><meta http-equiv="Content-type" content="text/html; charset=gb2312"><title> {#$title#}</title> <link rel="stylesheet/less" type="text/css" href="css/less/styles.less"><script src="css/less/less.js" type="text/javascript"></script></head> <body> {#$title#}sss<!--{$content}--><!--{time()}--></body> </html>
