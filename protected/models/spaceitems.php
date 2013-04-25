@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "supe_lhhonline_spaceitems".
+ * This is the model class for table "supe_mainspaceitems".
  *
- * The followings are the available columns in table 'supe_lhhonline_spaceitems':
+ * The followings are the available columns in table 'supe_mainspaceitems':
  * @property integer $itemid
  * @property integer $catid
  * @property integer $uid
@@ -64,37 +64,24 @@
  * @property integer $click_31
  * @property integer $click_32
  */
-class lhhItems extends CActiveRecord
+class spaceitems extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return lhhItems the static model class
+	 * @return spaceitems the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-	/*
-	public function __set($key,$value){
-		$this->$key = $value;
-	}
-	public function __get($property_name){
-		if(isset($this->$property_name))
-		{
-		return($this->$property_name);
-		}else
-		{
-		return(NULL);
-		}
-	}
-	*/
+
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'supe_lhhonline_spaceitems';
+		return 'supe_mainspaceitems';
 	}
 
 	/**
@@ -135,7 +122,6 @@ class lhhItems extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'thumbpath' => 'Thumbpath',
 			'itemid' => 'Itemid',
 			'catid' => 'Catid',
 			'uid' => 'Uid',
@@ -211,7 +197,6 @@ class lhhItems extends CActiveRecord
 
 		$criteria->compare('itemid',$this->itemid);
 		$criteria->compare('catid',$this->catid);
-		$criteria->compare('thumbpath',$this->thumbpath);
 		$criteria->compare('uid',$this->uid);
 		$criteria->compare('tid',$this->tid);
 		$criteria->compare('username',$this->username,true);
