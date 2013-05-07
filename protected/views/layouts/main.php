@@ -5,38 +5,49 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
 
-	<link rel="stylesheet/less" type="text/css" href="css/less/veryless.less">
-	<link rel="stylesheet/less" type="text/css" href="css/less/styles.less">
-	<script src="css/less/less.js" type="text/javascript"></script>
+	<!-- blueprint CSS framework -->
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
+	<![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
+
 <body>
-<div id="page">
-	<div class="header container">
-		<div id="logo">
-		</div>
+
+<div class="container" id="page">
+
+	<div id="header">
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
+
 	<div id="mainmenu">
-		<ul class="clearfix">
-			<li class="d-logo"><a href="#"></a></li>
-			<li><a href="index.php?r=collection" class="">连环画阅览室</a></li>
-			<li><a href="index.php?r=compCollection" class="">综合阅览室</a></li>
-			<li><a href="index.php?r=celebrity" class="">民家风采</a></li>
-			<li><a href="index.php?r=encyclopedia" class="">连环画百科</a></li>
-		</ul>
+		<?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+			),
+		)); ?>
 	</div><!-- mainmenu -->
-	<div  class="container">
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
-	</div>
-	<div id="maindoc">
-		<?php echo $content; ?>
-	</div>
 
-	<div id="footer" class="container">
+	<?php echo $content; ?>
+
+	<div class="clear"></div>
+
+	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>

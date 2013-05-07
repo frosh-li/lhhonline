@@ -126,12 +126,6 @@ class ReaderController extends Controller
 		$xml .= '</content>';
 		print_r($xml);
 	}
-	/**
-		读取具体的文章列表
-	*/
-	function actionNews(){
-
-	}
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

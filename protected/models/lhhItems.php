@@ -75,20 +75,7 @@ class lhhItems extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	/*
-	public function __set($key,$value){
-		$this->$key = $value;
-	}
-	public function __get($property_name){
-		if(isset($this->$property_name))
-		{
-		return($this->$property_name);
-		}else
-		{
-		return(NULL);
-		}
-	}
-	*/
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -135,7 +122,6 @@ class lhhItems extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'thumbpath' => 'Thumbpath',
 			'itemid' => 'Itemid',
 			'catid' => 'Catid',
 			'uid' => 'Uid',
@@ -211,7 +197,6 @@ class lhhItems extends CActiveRecord
 
 		$criteria->compare('itemid',$this->itemid);
 		$criteria->compare('catid',$this->catid);
-		$criteria->compare('thumbpath',$this->thumbpath);
 		$criteria->compare('uid',$this->uid);
 		$criteria->compare('tid',$this->tid);
 		$criteria->compare('username',$this->username,true);
